@@ -1,0 +1,21 @@
+hours_elapsed: how many hours have passed since the start of tracking period (one month of data so 744 total hours)
+ 
+transaction_type: what action was performed by initiating customer
+ 
+transaction_amount: dollar amount of transaction
+ 
+intiating_customer: customer who initiated the transaction. If ID begins with 'C' it is a normal customer, whereas IDs beginning with an 'M' is a merchant.
+ 
+initiater_balance_before: how much money did initiating_customer have in their account before the transaction
+ 
+initiater_balance_after: how much money did initiating_customer have in their account after the transaction (technically can't be used in prediction because we would ideally flag transactions before they go thru but you can treat this as what the balance would be if completed).
+ 
+recipient_customer: customer who recieved the transaction. If ID begins with 'C' it is a normal customer, whereas IDs beginning with an 'M' is a merchant.
+ 
+recipient_balance_before: how much money did recipient_customer have in their account before the transaction
+ 
+recipient_balance_after: how much money did recipient_customer have in their account after the transaction (technically can't be used in prediction because we would ideally flag transactions before they go thru but you can treat this as what the balance would be if completed).
+ 
+is_fraud_flagged: did the system flag the transaction as fraud (1 for flagged fraud 0 for not)
+ 
+is_fraud: was the transaction actually fraud (1 for fraud 0 for not). is_fraud is not included in your data test set

@@ -1,0 +1,19 @@
+# Local datasets (including downloaded train/test Parquet files)
+*.parquet
+
+# Reference papers, generated figures, and report source/build files
+/paper/
+/image/
+/latex/
+
+# Generated outputs
+/output/
+/outputs/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# macOS metadata
+.DS_Store
+._*
