@@ -38,12 +38,14 @@ Use Python 3.9 and the dependencies in `submission/code/requirements.txt`.
 Place the original `train_fraud.parquet` and `test_fraud_external.parquet` files
 in the repository root, and read `columns.txt` before working with the data.
 
-In the project's Windows environment, run from the repository root:
+Activate your Python 3.9 environment, then run these commands from the repository
+root. Here, `python` refers to the interpreter in your active environment; use
+`python3` instead if that is the command on your system.
 
-```powershell
-& "D:\miniconda3\envs\nasdaq\python.exe" -m pip install -r submission/code/requirements.txt
-& "D:\miniconda3\envs\nasdaq\python.exe" submission/code/experiments/eda_summary.py --train train_fraud.parquet --output output
-& "D:\miniconda3\envs\nasdaq\python.exe" submission/code/experiments/train_ablation.py --train train_fraud.parquet --test test_fraud_external.parquet --output output --submission-path submission/test_fraud_external.parquet
+```bash
+python -m pip install -r submission/code/requirements.txt
+python submission/code/experiments/eda_summary.py --train train_fraud.parquet --output output
+python submission/code/experiments/train_ablation.py --train train_fraud.parquet --test test_fraud_external.parquet --output output --submission-path submission/test_fraud_external.parquet
 ```
 
 See [the reproduction guide](submission/code/README.md) for the remaining
