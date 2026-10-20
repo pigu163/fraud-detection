@@ -113,29 +113,38 @@ def summarize_rule_over_time(df: pd.DataFrame) -> pd.DataFrame:
 def plot_full_balance_rule(df: pd.DataFrame, output_dir="image/交易金额与余额行为") -> Path:
     """Compare exact rule matches with all other rows within each fraud type."""
     summary = summarize_full_balance_rule(df)
-    fig, axes = plt.subplots(1, 2, figsize=(183 * MM_TO_INCH, 78 * MM_TO_INCH))
-    for ax, transaction_type in zip(axes, FRAUD_TYPES):
+    # This figure is placed as one of three equal-width panels in the report.
+    # A single grouped axis keeps the panel readable at that width.
+    rows = []
+    for transaction_type in FRAUD_TYPES:
         block = summary.loc[transaction_type]
-        y = np.arange(2)
-        counts = block["transactions"].to_numpy()
-        ax.barh(y, counts, color=[ACCENT_RED, CATEGORICAL[0]], height=0.54)
-        ax.set_yticks(y, ["Rule match", "Other"])
-        ax.invert_yaxis()
-        ax.set_xscale("log")
-        ax.set_xlim(1, counts.max() * 20)
-        ax.set_xticks([1, 1_000, 1_000_000], ["1", "1k", "1M"])
-        ax.minorticks_off()
-        ax.set_xlabel("Transactions (log scale)")
-        ax.set_title(transaction_type, fontweight="bold")
-        for yi, (_, row) in enumerate(block.iterrows()):
-            rate = row["fraud_rate_pct"]
-            rate_label = "100%" if rate == 100 else f"{rate:.4f}%"
-            ax.annotate(
-                f"{int(row['fraud']):,}/{int(row['transactions']):,} fraud ({rate_label})",
-                xy=(row["transactions"], yi), xytext=(5, 0),
-                textcoords="offset points", va="center", color=BLACK,
-            )
-    fig.suptitle("Positive-balance full withdrawal: rule versus other transactions", fontweight="bold")
+        for rule_match, row in block.iterrows():
+            rows.append((transaction_type, bool(rule_match), row))
+    labels = [
+        f"{transaction_type}\n{'Rule match' if rule_match else 'Other'}"
+        for transaction_type, rule_match, _ in rows
+    ]
+    counts = np.asarray([row["transactions"] for _, _, row in rows], dtype=float)
+    colors = [ACCENT_RED if rule_match else CATEGORICAL[0] for _, rule_match, _ in rows]
+    fig, ax = plt.subplots(figsize=(89 * MM_TO_INCH, 72 * MM_TO_INCH))
+    y = np.arange(len(rows))
+    ax.barh(y, counts, color=colors, height=0.58)
+    ax.set_yticks(y, labels)
+    ax.invert_yaxis()
+    ax.set_xscale("log")
+    ax.set_xlim(1, counts.max() * 20)
+    ax.set_xticks([1, 1_000, 1_000_000], ["1", "1k", "1M"])
+    ax.minorticks_off()
+    ax.set_xlabel("Transactions (log scale)")
+    ax.set_title("Full-balance rule by transaction type", fontweight="bold")
+    for yi, (_, _, row) in enumerate(rows):
+        rate = row["fraud_rate_pct"]
+        rate_label = "100%" if rate == 100 else f"{rate:.4f}%"
+        ax.annotate(
+            f"{int(row['fraud']):,}/{int(row['transactions']):,} ({rate_label})",
+            xy=(row["transactions"], yi), xytext=(4, 0),
+            textcoords="offset points", va="center", color=BLACK,
+        )
     return save_pdf_figure(fig, Path(output_dir) / "full_balance_rule_by_type")
 
 

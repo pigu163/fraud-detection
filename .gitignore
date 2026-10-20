@@ -1,5 +1,22 @@
 # Local datasets (including downloaded train/test Parquet files)
 *.parquet
+/data/raw/
+
+# Downloaded submission bundles and other large archives
+*.zip
+*.7z
+*.rar
+
+# Locally trained model artifacts / checkpoints
+*.joblib
+*.pkl
+*.pickle
+*.model
+*.pt
+*.pth
+*.onnx
+*.h5
+*.hdf5
 
 # Reference papers, generated figures, and report source/build files
 /paper/
@@ -13,6 +30,9 @@
 # Python cache files
 __pycache__/
 *.py[cod]
+
+# Portable local compiler used by the LaTeX Workshop Tectonic recipe
+/.tools/
 
 # macOS metadata
 .DS_Store

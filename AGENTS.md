@@ -31,17 +31,23 @@ All implementations must use Python.
 
 The project MUST use the following Python interpreter:
 
-/Users/zhaobo/anaconda3/envs/torch/bin/python
+`D:\miniconda3\envs\nasdaq\python.exe`
 
 Always use this interpreter when executing Python scripts.
 
 Example:
 
-```bash
-/Users/zhaobo/anaconda3/envs/torch/bin/python src/train.py
+```powershell
+& "D:\miniconda3\envs\nasdaq\python.exe" src/train.py
 ```
 
 Do not create another virtual environment unless explicitly requested.
+
+Verified compatibility in the Windows `nasdaq` environment:
+
+- Python 3.9.25, `numpy==1.26.4`, and `snapml==1.15.6`.
+- Keep NumPy below 2 while using Snap ML 1.15.6; its native extension is incompatible with NumPy 2.
+- Snap ML CPU model training and prediction have been verified. Snap ML 1.15.6's `GraphFeaturePreprocessor` is not supported on Windows, even though its Python wrapper is present.
 
 Before installing additional dependencies:
 

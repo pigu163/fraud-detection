@@ -1,46 +1,45 @@
-# Minimal GFP-style features
+# GFP-inspired graph features
 
-`graph_features.py` implements five **historical vertex/edge statistics** from
-the Graph Feature Preprocessor (GFP) idea: source prior outgoing degree and
-distinct-neighbor fan, target prior incoming degree and distinct-neighbor fan,
-and prior transactions on the exact directed pair. The edge direction is the
-recorded `initiating_customer -> recipient_customer` relationship. For some
-transaction types this may not represent the complete economic cash flow.
+These files are a small, pure-Python implementation of selected ideas from
+Snap ML's Graph Feature Preprocessor paper. They are not a full GFP replacement.
 
-All counts use transactions with `hours_elapsed` **strictly less than** the
-current row's hour. Rows in the same hour receive the same history snapshot.
-The implementation does not use `is_fraud`, post-transaction balances, or the
-external test file. It keeps input row order and index.
+## Implemented features
 
-This is a deliberately small **GFP-inspired subset**, not the IBM Snap ML
-`GraphFeaturePreprocessor` implementation and not its cycle or scatter-gather
-miner. Snap ML is absent from the required Python 3.12 / Apple ARM environment;
-the documented Mac package support is Intel. NetworkX is used in a small
-reference test; pandas handles the full dataset to avoid a huge Python graph.
+- `graph_features.py`: prior-hour incoming/outgoing transaction counts,
+  distinct counterparties, and prior count for the same directed pair.
+- `gfp_additional_features.py`: prior-hour outgoing/incoming amount sum, mean,
+  maximum, and the count of earlier reverse-direction edges (two-edge temporal
+  cycles).
+- `code/plot/gfp_topology_eda.py`: report-sized label-distribution, fraud-rate,
+  and enrichment plots for all twelve features.
 
-The notebook imports `build_gfp_features`, summarizes features against the
-training label, and writes PDF figures plus a CSV summary. Those are
-descriptive full-training-set comparisons. For model validation, calculate
-features from the permitted chronological history in each fold, compare a
-tabular baseline with the same model plus these features, and keep any future
-external test data isolated until model selection is final.
+All rows in the same `hours_elapsed` bucket see the same history: transactions
+within an hour are not ordered arbitrarily. Features do not read `is_fraud` or
+post-transaction balances. A zero means no earlier history for the amount
+features; use the existing prior-degree features to distinguish that case.
 
-Sources: the three papers in `paper/`, especially *Graph Feature
-Preprocessor: Real-time Subgraph-based Feature Extraction for Financial Crime
-Detection*, and the [Snap ML 1.15 GFP documentation](https://snapml.readthedocs.io/en/v1.15/graph_preprocessor.html).
+## Example
 
-The synthetic-transaction paper motivates directed transaction multigraphs
-and historical pattern features. The network-analytics review motivates
-comparing simple manual network features before using GNNs and cautions about
-optimistic findings on synthetic data. The GFP paper motivates vertex fan and
-degree statistics in a transaction stream. None of the papers establishes that
-this challenge's `is_fraud` labels represent AML layering.
+```python
+import pandas as pd
+from graph_features import build_gfp_features
+from gfp_additional_features import build_additional_gfp_features
 
-Run the notebook from the repository root with the required `torch` Python
-kernel. It writes `outputs/metrics/gfp_feature_summary.csv`, a time-matched
-summary for hours 635–718, and three PDF figures in
-`image/图拓扑特征/`. Run the small reference check with:
-
-```bash
-/Users/zhaobo/anaconda3/envs/torch/bin/python code/GFP/test_graph_features.py
+transactions = pd.read_parquet("data/raw/train_fraud.parquet")
+features = pd.concat(
+    [build_gfp_features(transactions),
+     build_additional_gfp_features(transactions)],
+    axis=1,
+)
 ```
+
+For a chronological validation split, pass the permitted earlier history and
+the rows being scored together, then keep features for the scored rows. Never
+include later rows in the input. Keep the external test file out of feature
+selection and model validation; use it only for final inference.
+
+Snap ML's Python wrapper delegates GFP operations to native `gf_*` functions.
+The Windows wheel inspected for this project does not include those functions,
+so this code reproduces a limited set of paper-inspired statistics in Python.
+It does not implement the native streaming engine, scatter-gather motifs, or
+the paper's complete pattern miner.

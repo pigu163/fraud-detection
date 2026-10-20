@@ -1,0 +1,21 @@
+# Tested with Python 3.9.25.
+# Core data processing and Parquet support
+numpy==1.26.4
+pandas==2.3.3
+pyarrow==21.0.0
+
+# Modeling, evaluation, and persistence
+scikit-learn==1.6.1
+scipy==1.13.1
+joblib==1.5.3
+xgboost==2.1.4
+lightgbm==4.6.0
+
+# Static report figures
+matplotlib==3.9.4
+
+# Notebook interface and kernel
+jupyterlab>=4.2,<5
+ipykernel>=6.29,<7
+ipython>=8.18,<9
+nbformat>=5.10,<6
