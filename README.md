@@ -34,12 +34,12 @@ performance; see the report for details.
 
 ## Run
 
-Use Python 3.9 and the dependencies in `submission/code/requirements.txt`.
+Use Python 3.12 and the dependencies in `submission/code/requirements.txt`.
 Place the original `train_fraud.parquet` and `test_fraud_external.parquet` files
 in the repository root, and read `columns.txt` before working with the data.
 
-Activate your Python 3.9 environment, then run these commands from the repository
-root. Here, `python` refers to the interpreter in your active environment; use
+Activate your Python 3.12 environment (`conda activate nasdaq`), then run these
+commands from the repository root. Here, `python` refers to the interpreter in your active environment; use
 `python3` instead if that is the command on your system.
 
 ```bash

@@ -29,7 +29,8 @@ All implementations must use Python.
 
 ## 2. Python Environment
 
-The project MUST use the following Python interpreter:
+The project MUST use the rebuilt `nasdaq` Conda environment (Python 3.12.15)
+and the following Python interpreter:
 
 `D:\miniconda3\envs\nasdaq\python.exe`
 
@@ -43,11 +44,24 @@ Example:
 
 Do not create another virtual environment unless explicitly requested.
 
-Verified compatibility in the Windows `nasdaq` environment:
+Environment maintenance:
 
-- Python 3.9.25, `numpy==1.26.4`, and `snapml==1.15.6`.
-- Keep NumPy below 2 while using Snap ML 1.15.6; its native extension is incompatible with NumPy 2.
-- Snap ML CPU model training and prediction have been verified. Snap ML 1.15.6's `GraphFeaturePreprocessor` is not supported on Windows, even though its Python wrapper is present.
+- The environment was rebuilt in place with Python 3.12.15; its interpreter
+  path remains `D:\miniconda3\envs\nasdaq\python.exe`.
+- Install project dependencies from `submission/code/requirements.txt` using
+  this interpreter. Preserve its pinned versions, including `numpy==1.26.4`.
+- All requirements and `pip check` passed after the rebuild. Smoke checks
+  covered imports, Parquet round trips, Logistic Regression / XGBoost /
+  LightGBM fitting and prediction, joblib persistence, and PDF figure export.
+- The environment provides a Jupyter kernel named `nasdaq`, displayed as
+  `Python 3.12 (nasdaq)`.
+- Historical reported experiments used Python 3.9.25. Rebuilding the environment
+  does not rerun or update those experimental results.
+- Snap ML is not included in the project requirements and is not installed by
+  this rebuild. Earlier Snap ML 1.15.6 compatibility checks applied only to the
+  old Python 3.9 environment, not this Python 3.12 environment. Its
+  `GraphFeaturePreprocessor` was unsupported on Windows; the project's
+  GFP-inspired features use the local Python implementation instead.
 
 Before installing additional dependencies:
 

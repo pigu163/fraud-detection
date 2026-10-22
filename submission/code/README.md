@@ -6,8 +6,10 @@ and external test prediction.
 
 ## Environment
 
-The reported results were produced with Python 3.9.25. Install all required
-Python packages from the project root:
+The reported results were produced with Python 3.9.25. The current `nasdaq`
+environment uses Python 3.12.15; historical experiments have not been rerun
+as part of the environment migration. Install all required Python packages
+from the project root:
 
 ```bash
 python -m pip install -r submission/code/requirements.txt

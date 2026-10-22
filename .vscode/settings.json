@@ -1,5 +1,31 @@
 {
     "python.analysis.extraPaths": [
-        "./code/plot"
-    ]
+        "./code/plot",
+        "./code/GFP"
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "tectonic",
+            "command": "tectonic",
+            "args": [
+                "--synctex",
+                "--keep-logs",
+                "--print",
+                "%DOC%.tex"
+            ],
+            "env": {
+                "PATH": "${env:PATH};${workspaceFolder}/.tools/tectonic",
+                "TECTONIC_CACHE_DIR": "${workspaceFolder}/.tools/tectonic/cache"
+            }
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Tectonic",
+            "tools": ["tectonic"]
+        }
+    ],
+    "latex-workshop.latex.recipe.default": "Tectonic",
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda"
 }
