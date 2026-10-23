@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#000000"/>
+<g id="title" data-pptx-bounds="64 48 1152 94" fill="#F5F5F5"><text x="64" y="70" font-size="16" fill="#A7ABB2">01  DATA AND EDA</text><text x="64" y="124" font-size="44">The strongest observed relationship</text></g>
+<g id="rule-definition" data-pptx-bounds="64 158 1152 42"><text x="64" y="187" font-size="26" fill="#F5F5F5">A = amount, B = starting balance: B &gt; 0 and abs(A − B) ≤ $0.01</text></g>
+<g id="full-balance-evidence" data-pptx-bounds="64 214 912 379"><image href="../images/eda_full_balance.png" x="64" y="214" width="912" height="379" preserveAspectRatio="xMidYMid meet"/></g>
+<g id="fraud-coverage" data-pptx-bounds="1010 234 206 335" fill="#F5F5F5"><text x="1010" y="303" font-size="76">346</text><text x="1010" y="348" font-size="26">of 357 fraud</text><text x="1010" y="402" font-size="20" fill="#A7ABB2">All 346 matches</text><text x="1010" y="432" font-size="20" fill="#A7ABB2">carry fraud labels.</text><text x="1010" y="504" font-size="26">11 outside</text><text x="1010" y="538" font-size="20" fill="#A7ABB2">the full-balance rule</text></g>
+<g id="discovery-caveat" data-pptx-bounds="64 612 1152 33"><text x="64" y="635" font-size="20" fill="#D0D2D6">Full-file EDA discovery, not held-out precision. Later partitions contributed to the hypothesis.</text></g>
+<text id="source" data-pptx-role="footer" x="64" y="680" font-size="14" fill="#A7ABB2">Source: original full_balance_rule_by_type.pdf. Complete figure and logarithmic count axes retained.</text><text id="page" data-pptx-role="page-number" x="1216" y="680" text-anchor="end" font-size="14" fill="#A7ABB2">03 / 20</text>
+</svg>

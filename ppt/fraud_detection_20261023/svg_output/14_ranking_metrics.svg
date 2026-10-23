@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#000000"/>
+<g id="title" data-pptx-bounds="64 48 1152 94" fill="#F5F5F5"><text x="64" y="70" font-size="16" fill="#A7ABB2">05 METRICS IN PLAIN LANGUAGE</text><text x="64" y="124" font-size="44">Do fraud transactions rise to the top?</text></g>
+<g id="ap" data-pptx-bounds="64 185 1152 187" fill="#F5F5F5"><text x="64" y="222" font-size="31">AP: how clean is the fraud shortlist?</text><text x="64" y="272" font-size="26">Sort transactions from highest to lowest fraud score.</text><text x="64" y="315" font-size="26">AP rewards finding fraud early, before normal transactions fill the list.</text><text x="64" y="357" font-size="21" fill="#A7ABB2">Higher is better. AP = 1 means all fraud is ranked ahead of normal transactions.</text></g>
+<line x1="64" y1="393" x2="1216" y2="393" stroke="#36383D"/>
+<g id="roc" data-pptx-bounds="64 416 1152 160" fill="#F5F5F5"><text x="64" y="453" font-size="31">ROC-AUC: does fraud usually get a higher score?</text><text x="64" y="501" font-size="26">Pick one fraud and one normal transaction: which gets ranked higher?</text><text x="64" y="544" font-size="23" fill="#A7ABB2">0.5 is chance-level ranking; 1 is perfect ranking. Ties count as half.</text></g>
+<text x="64" y="617" font-size="22" fill="#A7ABB2">We prioritize AP: a high ROC-AUC can still leave investigators with many false alerts.</text>
+<text id="source" data-pptx-role="footer" x="64" y="668" font-size="14" fill="#A7ABB2">Implementation: sklearn average_precision_score and roc_auc_score. AP is not trapezoidal PR area.</text><text id="page" data-pptx-role="page-number" x="1216" y="668" text-anchor="end" font-size="14" fill="#A7ABB2">14 / 20</text>
+</svg>

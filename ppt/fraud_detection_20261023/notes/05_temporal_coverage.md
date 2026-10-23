@@ -1,0 +1,1 @@
+EDA: fraud coverage starts at hour 635; legitimate records end at 718. This motivates the later supplementary chronological check.

@@ -1,0 +1,1 @@
+Complete semantic inventory: Raw 10 plus Extra 13. Both zero-balance flags refer to starting balances. Full-balance type interactions multiply the matching rule by TRANSFER and CASH_OUT indicators. All 13 additions are defined without target labels; hypothesis discovery nevertheless used full-training EDA.

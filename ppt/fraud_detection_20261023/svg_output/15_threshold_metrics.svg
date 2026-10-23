@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#000000"/>
+<g id="title" data-pptx-bounds="64 48 1152 94" fill="#F5F5F5"><text x="64" y="70" font-size="16" fill="#A7ABB2">05 METRICS IN PLAIN LANGUAGE</text><text x="64" y="124" font-size="44">Are the alerts useful, and what did we miss?</text></g>
+<g id="definitions" data-pptx-bounds="64 184 1152 233" fill="#F5F5F5"><text x="64" y="220" font-size="30">Precision (P)</text><text x="390" y="220" font-size="25">Of the alerts we send, how many are actually fraud?</text><text x="64" y="296" font-size="30">Recall (R)</text><text x="390" y="296" font-size="25">Of all real fraud, how much do we catch?</text><text x="64" y="372" font-size="30">F1</text><text x="390" y="372" font-size="25">One score that rewards both useful alerts and fewer misses.</text></g>
+<line x1="64" y1="418" x2="1216" y2="418" stroke="#36383D"/>
+<g id="example" data-pptx-bounds="64 443 1152 125" fill="#F5F5F5"><text x="64" y="478" font-size="27">Example: 10 alerts, 8 confirmed fraud, 2 fraud missed.</text><text x="64" y="528" font-size="27">Precision = 8 / 10 = 80%     Recall = 8 / 10 = 80%     F1 = 80%</text><text x="64" y="562" font-size="18" fill="#A7ABB2">Illustrative example, not an experimental result.</text></g>
+<text x="64" y="619" font-size="22" fill="#A7ABB2">Lower the alert cutoff: usually catch more fraud, but ask investigators to review more alerts.</text>
+<text id="source" data-pptx-role="footer" x="64" y="668" font-size="14" fill="#A7ABB2">Positive class: is_fraud = 1. TP true alert, FP false alert, FN missed fraud, TN correct legitimate prediction.</text><text id="page" data-pptx-role="page-number" x="1216" y="668" text-anchor="end" font-size="14" fill="#A7ABB2">15 / 20</text>
+</svg>

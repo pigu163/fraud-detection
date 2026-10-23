@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial" data-pptx-page-role="cover">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#000000"/>
+<g id="title" data-pptx-bounds="64 130 1152 265" fill="#F5F5F5">
+<text x="64" y="160" font-size="16" fill="#A7ABB2">DATA SCIENCE CASE STUDY</text>
+<text x="64" y="270" font-size="76" font-weight="bold">Transaction<tspan x="64" dy="90">Fraud Detection</tspan></text>
+</g>
+<g id="project-focus" data-pptx-bounds="64 438 1152 120" fill="#F5F5F5">
+<line x1="64" y1="442" x2="1216" y2="442" stroke="#36383D"/>
+<text x="64" y="500" font-size="30">EDA, feature ablation and validation</text>
+<text x="64" y="544" font-size="26" fill="#A7ABB2">The evidence behind a simple final model</text>
+</g>
+<text id="author" data-pptx-role="footer" x="64" y="668" font-size="16" fill="#A7ABB2">Zhaobo HU</text>
+<text id="page" data-pptx-role="page-number" x="1216" y="668" text-anchor="end" font-size="14" fill="#A7ABB2">01 / 20</text>
+</svg>

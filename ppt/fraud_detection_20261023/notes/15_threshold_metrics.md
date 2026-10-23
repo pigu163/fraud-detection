@@ -1,0 +1,1 @@
+Precision = TP/(TP+FP). Recall = TP/(TP+FN). F1 = 2PR/(P+R). F1 is the harmonic mean, not an ordinary arithmetic average, and stays low when either component is low. Example is illustrative: 8 TP, 2 FP, 2 FN; P=R=F1=0.8. Threshold selection used calibration labels only.

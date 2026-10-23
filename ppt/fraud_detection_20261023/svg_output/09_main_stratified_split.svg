@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#000000"/>
+<g id="title" data-pptx-bounds="64 48 1152 94" fill="#F5F5F5"><text x="64" y="70" font-size="16" fill="#A7ABB2">06  VALIDATION</text><text x="64" y="124" font-size="44">Main experiment: stratified 60/20/20</text></g>
+<g id="split-tree" data-pptx-bounds="64 169 1152 426">
+<g stroke="#A7ABB2" stroke-width="2"><line x1="640" y1="245" x2="640" y2="263"/><line x1="439" y1="263" x2="1050" y2="263"/><line x1="439" y1="263" x2="439" y2="295"/><line x1="1050" y1="263" x2="1050" y2="355"/><line x1="439" y1="367" x2="439" y2="413"/><line x1="244" y1="413" x2="649" y2="413"/><line x1="244" y1="413" x2="244" y2="451"/><line x1="649" y1="413" x2="649" y2="451"/></g>
+<rect x="420" y="175" width="440" height="70" rx="6" fill="#111111" stroke="#36383D"/><rect x="64" y="295" width="750" height="72" rx="6" fill="#111111" stroke="#36383D"/>
+<rect x="64" y="451" width="360" height="132" rx="6" fill="#111111" stroke="#A7ABB2"/><rect x="484" y="451" width="330" height="132" rx="6" fill="#111111" stroke="#A7ABB2"/><rect x="884" y="355" width="332" height="166" rx="6" fill="#F5F5F5"/>
+<g fill="#F5F5F5"><text x="640" y="205" text-anchor="middle" font-size="26">Training file only</text><text x="640" y="231" text-anchor="middle" font-size="20" fill="#A7ABB2">3,144,097 transactions</text><text x="439" y="327" text-anchor="middle" font-size="26">Development 80%</text><text x="439" y="353" text-anchor="middle" font-size="20" fill="#A7ABB2">Second split: 25% of development becomes calibration</text>
+<text x="88" y="486" font-size="26">Fit 60%</text><text x="88" y="522" font-size="23">1,886,457 rows / 214 fraud</text><text x="88" y="560" font-size="20" fill="#A7ABB2">Preprocessing + model fitting</text>
+<text x="504" y="486" font-size="26">Calibration 20%</text><text x="504" y="522" font-size="23">628,820 rows / 72 fraud</text><text x="504" y="560" font-size="20" fill="#A7ABB2">Model + threshold selection</text>
+<text x="908" y="397" font-size="30" fill="#000000">Holdout 20%</text><text x="908" y="439" font-size="23" fill="#000000">628,820 rows / 71 fraud</text><text x="908" y="485" font-size="20" fill="#000000">Internal evaluation only</text></g>
+</g>
+<g id="split-notes" data-pptx-bounds="64 615 1152 33"><text x="64" y="638" font-size="20" fill="#A7ABB2">StratifiedShuffleSplit, seed 42. Class proportions preserved. Time and entities can overlap.</text></g>
+<text id="source" data-pptx-role="footer" x="64" y="680" font-size="14" fill="#A7ABB2">Source: submitted train_ablation.py. Schematic geometry. Earlier full-file EDA limits holdout independence.</text><text id="page" data-pptx-role="page-number" x="1216" y="680" text-anchor="end" font-size="14" fill="#A7ABB2">09 / 20</text>
+</svg>

@@ -1,0 +1,1 @@
+AP summarizes precision as recall grows. The project uses sklearn average_precision_score on continuous scores, with fraud positive. Formula: AP = sum((R_n - R_previous) * P_n). This is not trapezoidal PR area. ROC-AUC measures pairwise ranking, counting tied scores as half. AP is primary under extreme imbalance; all-negative accuracy is unhelpful.

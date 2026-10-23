@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#000000"/>
+<g id="title" data-pptx-bounds="64 48 1152 94" fill="#F5F5F5"><text x="64" y="70" font-size="16" fill="#A7ABB2">01  DATA AND EDA</text><text x="64" y="124" font-size="44">Rare fraud, usable records</text></g>
+<g id="rarity" data-pptx-bounds="64 190 530 315" fill="#F5F5F5">
+<text x="64" y="260" font-size="76">357</text><text x="64" y="307" font-size="26">fraud among 3,144,097 transactions</text>
+<text x="64" y="414" font-size="76">0.0114%</text><text x="64" y="461" font-size="26" fill="#A7ABB2">observed training prevalence</text>
+</g>
+<g id="quality" data-pptx-bounds="670 190 546 315" fill="#F5F5F5">
+<text x="670" y="228" font-size="30">Basic record quality</text>
+<text x="670" y="286" font-size="26">No missing cells</text><text x="670" y="328" font-size="26">No duplicate rows</text><text x="670" y="370" font-size="26">No constant raw fields</text>
+<text x="670" y="434" font-size="20" fill="#A7ABB2">10 input fields plus the target</text><text x="670" y="468" font-size="20" fill="#A7ABB2">5 transaction types</text>
+</g>
+<g id="prediction-task" data-pptx-bounds="64 550 1152 73" fill="#F5F5F5"><line x1="64" y1="551" x2="1216" y2="551" stroke="#36383D"/><text x="64" y="598" font-size="26">Task: score each transaction before approval. Positive class: is_fraud = 1.</text></g>
+<text id="source" data-pptx-role="footer" x="64" y="668" font-size="14" fill="#A7ABB2">Source: training-only EDA, output/metrics/eda_quality.json</text><text id="page" data-pptx-role="page-number" x="1216" y="668" text-anchor="end" font-size="14" fill="#A7ABB2">02 / 20</text>
+</svg>

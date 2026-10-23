@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#000000"/>
+<g id="title" data-pptx-bounds="64 48 1152 94" fill="#F5F5F5"><text x="64" y="70" font-size="16" fill="#A7ABB2">02 FEATURE ENGINEERING</text><text x="64" y="124" font-size="42">What goes into Raw 10 and Extra 13?</text></g>
+
+<g id="raw" data-pptx-bounds="64 180 510 446" fill="#F5F5F5">
+<text x="64" y="209" font-size="29">Raw 10: transaction context</text>
+<text x="64" y="257" font-size="23">Elapsed hour; transaction type; amount</text>
+<text x="64" y="299" font-size="23">Initiator + recipient starting balances</text>
+<text x="64" y="341" font-size="23">Existing system fraud flag</text>
+<text x="64" y="383" font-size="23">C / M prefix flags for both endpoints (4)</text>
+<line x1="64" y1="416" x2="574" y2="416" stroke="#36383D"/>
+<text x="64" y="459" font-size="22">Pre-approval inputs only</text>
+<text x="64" y="498" font-size="20" fill="#A7ABB2">Account IDs define history, not model columns.</text>
+<text x="64" y="536" font-size="20" fill="#A7ABB2">Post-transaction balances are excluded.</text>
+<text x="64" y="599" font-size="20" fill="#A7ABB2">Counts refer to inputs before one-hot encoding.</text>
+</g>
+<g id="extra" data-pptx-bounds="640 180 576 446" fill="#F5F5F5">
+<text x="640" y="209" font-size="29">Extra 13: amount versus balance</text>
+<text x="640" y="257" font-size="23">Log amount (1); zero starting balances (2)</text>
+<text x="640" y="299" font-size="23">Amount / each starting balance (2)</text>
+<text x="640" y="341" font-size="23">Signed + absolute initiator difference (2)</text>
+<text x="640" y="383" font-size="23">Exceeds balance; full-balance match (2)</text>
+<text x="640" y="425" font-size="23">Zero amount; zero amount + balance (2)</text>
+<text x="640" y="467" font-size="23">Full-balance x TRANSFER / CASH_OUT (2)</text>
+<text x="640" y="530" font-size="23">Full balance: B &gt; 0 and |A - B| &lt;= 0.01</text>
+<text x="640" y="568" font-size="20" fill="#A7ABB2">A = amount; B = initiator starting balance.</text>
+<text x="640" y="606" font-size="20" fill="#A7ABB2">Ratios use positive denominators; otherwise NaN.</text>
+</g>
+<text id="source" data-pptx-role="footer" x="64" y="680" font-size="14" fill="#A7ABB2">Source: submitted train_ablation.py, RAW_COLUMNS / EXTRA_COLUMNS and add_extra_features().</text><text id="page" data-pptx-role="page-number" x="1216" y="680" text-anchor="end" font-size="14" fill="#A7ABB2">07 / 20</text></svg>

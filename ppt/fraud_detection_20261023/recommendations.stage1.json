@@ -1,0 +1,14 @@
+{
+  "stage": "stage1",
+  "lang": "zh",
+  "primary_language": "en-US",
+  "recommend": {"canvas": "ppt169"},
+  "audience": {"value": "数据科学招聘面试官及有一定业务背景的技术评审"},
+  "communication_intent": {"value": "用英文展示欺诈检测项目的完整推理过程，说明 EDA 如何推动特征工程、消融实验、模型选择和验证，并解释指标与局限"},
+  "audience_outcome": {"value": "理解特征设计的证据、三种基线的比较、分层划分和三折验证的区别，能准确判断高分的含义与边界"},
+  "core_message": {"value": "金额与交易前余额的关系带来主要性能提升，三折结果支持随机分区稳定性，但全训练集 EDA 暴露和时间覆盖限制了未来泛化结论"},
+  "delivery_context": {"value": "面试中的项目现场讲解，建议 12–15 分钟，内容简洁，主要细节由演讲者说明"},
+  "artifact_afterlife": {"value": "可编辑 PPTX 留作面试展示、复习及后续修改，保存在项目 ppt 文件夹"},
+  "content_divergence": {"value": ""},
+  "template_options": {"schema_version": 1, "phase": "template", "lang": "zh", "explicit_workspace_roots": [], "default_mode": "free_design"}
+}

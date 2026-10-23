@@ -1,0 +1,13 @@
+# Delegated planning decisions
+
+The user explicitly authorized all design and workflow confirmations in chat on 2026-10-23. No UI receipt is synthesized. The confirmation UI did not launch because Flask was absent. This run uses the delegated branch.
+
+Stage 1: en-US, data-science recruitment panel, explain the complete project and the evidence behind feature engineering and validation. Audience should distinguish within-file separability from prospective performance. Live interview delivery, approximately 12–15 minutes, editable PPTX for later revision. Free design. 16:9. Content divergence unspecified, balanced default. The central conclusion is that amount/balance features explain the main measured gain, while discovery exposure and temporal coverage limit generalization claims.
+
+Stage 2 alternatives, all respecting the user's black background and white text:
+
+1. **Evidence-led editorial** (selected). Follow the requested EDA-to-results-to-methods sequence. Large left-aligned claim or topic, generous open field, flat ruled data tables, restrained numeric emphasis, alternating dense evidence and quiet explanations. A hypothetical image rendering would be flat monochrome evidence diagrams like a technical journal; no AI images are needed. Best fit for a concise interview presentation with substantial validation explanation.
+2. **Notebook walkthrough**. Pair a dominant existing EDA figure with compact interpretation, then trace the code pipeline. Hypothetical rendering: monochrome document fragments like an annotated laboratory notebook. Less suitable because white-background source plots need large image fields and the deck must remain visually black.
+3. **Result-first research briefing**. Open with the selected result, then reconstruct its assumptions and ablations with centered numeric statements and a compact appendix. Hypothetical rendering: isolated monochrome analytical objects like museum exhibit labels. Less suitable because it departs from the requested EDA-first order.
+
+Selected communication mode and style are original custom behaviors without catalog bases. Palette: black #000000, support #111111, white #F5F5F5, secondary text #A7ABB2, divider #36383D. Arial family. 17 slides. Body 26px. Speaker notes enabled. Animation, narration, and spec refinement disabled. Continuous generation. Brief Design Spec. No image acquisition. Existing figure evidence is restated as editable native text/tables from source values. Native tables remain editable. Ordinary math uses inline slash notation, AP's summation uses native Office Math. All source paths in speaker notes are repository-relative.

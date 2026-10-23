@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#000000"/>
+<g id="title" data-pptx-bounds="64 48 1152 94" fill="#F5F5F5"><text x="64" y="70" font-size="16" fill="#A7ABB2">07  SUPPLEMENTARY CHECKS</text><text x="64" y="124" font-size="44">Supplementary: chronological split</text></g>
+<g id="timeline" data-pptx-bounds="64 184 1152 290">
+<text x="64" y="214" font-size="21" fill="#A7ABB2">hours_elapsed (increasing)</text>
+<rect x="64" y="244" width="480" height="86" rx="5" fill="#F5F5F5"/><rect x="550" y="244" width="210" height="86" rx="5" fill="#BFC2C7"/><rect x="766" y="244" width="330" height="86" rx="5" fill="#777B82"/><rect x="1102" y="244" width="114" height="86" rx="5" fill="#35383E"/>
+<g font-size="23" text-anchor="middle" fill="#F5F5F5"><text x="304" y="278" fill="#000000">FIT / 0-659 h</text><text x="304" y="310" font-size="18" fill="#222222">3,126,823 rows / 215 fraud</text><text x="655" y="278" fill="#000000">THRESHOLD</text><text x="655" y="310" font-size="18" fill="#000000">660-680 h</text><text x="931" y="278">HOLDOUT</text><text x="931" y="310" font-size="18">681-718 h</text><text x="1159" y="278" font-size="18">LATE</text><text x="1159" y="310" font-size="16">719+ h</text></g>
+<g font-size="19" fill="#A7ABB2" text-anchor="middle"><text x="655" y="362">2,294 rows / 37 fraud</text><text x="931" y="362">14,939 rows / 64 fraud</text><text x="1159" y="362">41 fraud</text></g>
+<path d="M304 380 V414 H655 V380" fill="none" stroke="#A7ABB2" stroke-width="2"/><text x="480" y="445" font-size="21" text-anchor="middle" fill="#A7ABB2">Fit model, then choose F1 threshold</text>
+<path d="M655 461 H931" fill="none" stroke="#F5F5F5" stroke-width="2" marker-end="url(#arrow)"/><text x="931" y="450" font-size="20" text-anchor="middle" fill="#F5F5F5">Freeze model + threshold; evaluate</text>
+</g>
+
+<g id="limits" data-pptx-bounds="64 520 1152 100" fill="#F5F5F5"><text x="64" y="548" font-size="21">Main temporal evaluation: hours 681-718 contain both classes.</text><text x="64" y="581" font-size="18" fill="#A7ABB2">719+ contains no legitimate rows, so it only checks fraud detection. Boundaries were post-hoc, not pre-registered.</text><text x="64" y="612" font-size="18" fill="#A7ABB2">Elapsed-hour index has no calendar origin; bins are not known clock hours or weekdays.</text></g>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#F5F5F5"/></marker></defs>
+<text id="source" data-pptx-role="footer" x="64" y="680" font-size="14" fill="#A7ABB2">Source: submission/code/experiments/temporal_validation.py; output/metrics/temporal_validation.json.</text><text id="page" data-pptx-role="page-number" x="1216" y="680" text-anchor="end" font-size="14" fill="#A7ABB2">18 / 20</text>
+</svg>

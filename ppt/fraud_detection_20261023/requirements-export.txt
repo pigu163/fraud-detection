@@ -1,0 +1,7 @@
+# Local PPT Master export dependencies, isolated under .tools/ppt_runtime.
+# These are presentation tooling only, not model-training requirements.
+python-pptx==1.0.2
+lxml==6.1.3
+XlsxWriter==3.3.0
+Pillow==13.0.0
+typing-extensions==4.16.0

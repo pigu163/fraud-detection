@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial" data-pptx-page-role="content">
+<rect id="background" data-pptx-role="background" width="1280" height="720" fill="#000000"/>
+<g id="title" data-pptx-bounds="64 48 1152 94" fill="#F5F5F5"><text x="64" y="70" font-size="16" fill="#A7ABB2">07  SUPPLEMENTARY CHECKS</text><text x="64" y="124" font-size="44">Three-fold stratified validation</text></g>
+<g id="fold-rotation" data-pptx-bounds="64 180 1152 305">
+<g fill="#A7ABB2" font-size="20"><text x="484" y="205" text-anchor="middle">FOLD A</text><text x="762" y="205" text-anchor="middle">FOLD B</text><text x="1040" y="205" text-anchor="middle">FOLD C</text></g>
+<g fill="#F5F5F5" font-size="26"><text x="64" y="274">Round 1</text><text x="64" y="364">Round 2</text><text x="64" y="454">Round 3</text></g>
+<rect x="350" y="232" width="268" height="62" rx="6" fill="#F5F5F5"/><rect x="628" y="232" width="546" height="62" rx="6" fill="#111111" stroke="#36383D"/>
+<rect x="350" y="322" width="268" height="62" rx="6" fill="#111111" stroke="#36383D"/><rect x="628" y="322" width="268" height="62" rx="6" fill="#F5F5F5"/><rect x="906" y="322" width="268" height="62" rx="6" fill="#111111" stroke="#36383D"/>
+<rect x="350" y="412" width="546" height="62" rx="6" fill="#111111" stroke="#36383D"/><rect x="906" y="412" width="268" height="62" rx="6" fill="#F5F5F5"/>
+<g font-size="23"><text x="484" y="272" text-anchor="middle" fill="#000000">Validate</text><text x="901" y="272" text-anchor="middle" fill="#A7ABB2">Train on B + C</text><text x="484" y="362" text-anchor="middle" fill="#A7ABB2">Train</text><text x="762" y="362" text-anchor="middle" fill="#000000">Validate</text><text x="1040" y="362" text-anchor="middle" fill="#A7ABB2">Train</text><text x="623" y="452" text-anchor="middle" fill="#A7ABB2">Train on A + B</text><text x="1040" y="452" text-anchor="middle" fill="#000000">Validate</text></g>
+</g>
+<g id="inner-calibration-flow" data-pptx-bounds="64 519 1152 116">
+<line x1="374" y1="548" x2="426" y2="548" stroke="#A7ABB2" stroke-width="2"/><line x1="760" y1="548" x2="812" y2="548" stroke="#A7ABB2" stroke-width="2"/>
+<rect x="64" y="522" width="310" height="52" rx="6" fill="#111111" stroke="#36383D"/><rect x="426" y="522" width="334" height="52" rx="6" fill="#111111" stroke="#36383D"/><rect x="812" y="522" width="404" height="52" rx="6" fill="#111111" stroke="#36383D"/>
+<g fill="#F5F5F5" font-size="20"><text x="219" y="556" text-anchor="middle">Inner fit/calibration 80/20</text><text x="593" y="556" text-anchor="middle">Select cutoff, refit outer train</text><text x="1014" y="556" text-anchor="middle">Score the unseen validation fold</text></g>
+<text x="64" y="622" font-size="20" fill="#A7ABB2">StratifiedKFold K = 3, shuffle = True, seed 42. Scope: raw and raw + extra, all three models.</text></g>
+<text id="source" data-pptx-role="footer" x="64" y="680" font-size="14" fill="#A7ABB2">Source: submitted cv_3fold.py. White segment marks outer validation. A/B/C are schematic fold labels.</text><text id="page" data-pptx-role="page-number" x="1216" y="680" text-anchor="end" font-size="14" fill="#A7ABB2">16 / 20</text>
+</svg>
