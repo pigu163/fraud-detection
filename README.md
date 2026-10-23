@@ -1,56 +1,67 @@
-# Fraud Detection
+# Fraud Detection Challenge
 
-A Python machine learning project for detecting fraudulent financial transactions.
-It covers exploratory data analysis, feature engineering, model comparison,
-internal validation, and predictions for a separate external test dataset.
+Transaction-level fraud detection take-home project. The repository contains the
+Python pipeline, exploratory analysis, an internal validation study, and the
+submitted PDF report. The external test set is used only to generate predictions.
 
-## Approach
+## Results at a glance
 
-- Explore class imbalance, transaction amounts, balances, and account activity.
-- Compare Logistic Regression, XGBoost, and LightGBM across feature groups.
-- Test amount-to-balance features and account/graph statistics constructed from
-  strictly earlier hours.
-- Select models using Average Precision (AP), choose a decision threshold on
-  calibration data, and report fraud precision, recall, F1, and alert-budget metrics.
-- Use stratified validation and cross-validation, with a separate post-hoc
-  temporal sensitivity analysis.
+The labeled training file contains 3,144,097 transactions, including 357 fraud
+cases (0.0114%). We compared Logistic Regression, XGBoost, and LightGBM across
+four feature groups: raw transaction fields; raw plus amount/balance features;
+raw plus earlier-hour account/graph history; and all three groups combined.
 
-The external test dataset is reserved for final inference. Pre-approval models
-exclude post-transaction balances. Full-training-set EDA exposure and temporal
-coverage differences limit how strongly internal validation can establish future
-performance; see the report for details.
+The selected class-weighted Logistic Regression uses raw plus amount/balance
+features. On the internal stratified holdout (628,820 rows, 71 fraud), its
+Average Precision (AP) was 1.000. At a threshold selected on a separate
+calibration partition, it found 71/71 fraud cases with zero false alerts. A
+three-fold stratified check gave mean AP 0.99998 and mean fraud-class F1 0.9915.
+A separate *post-hoc* chronological sensitivity check is also included.
 
-## Repository
+These are within-file results. The strongest balance pattern was discovered
+using labels from the full training file, fraud occurs in a restricted late
+time range, and the chronological boundaries were chosen after inspecting
+label coverage. The results are **not a prospective performance estimate**.
+See the [report](submission/fraud_detection_report.pdf) for the full evidence
+and limitations.
+
+## Repository map
 
 | Path | Contents |
 | --- | --- |
-| `code/plot/` | EDA and visualization scripts |
-| `code/GFP/` | Historical account and graph feature helpers |
-| `code/experiments/` | Training, evaluation, and experiment scripts |
-| `read_parquet_files.ipynb` | Exploratory notebook |
-| `columns.txt` | Dataset field descriptions |
-| `submission/code/` | Submission source, dependencies, and reproduction guide |
-| `submission/fraud_detection_report.pdf` | Project report |
+| [`submission/code/`](submission/code/) | Submitted implementation, notebook, requirements, and [reproduction guide](submission/code/README.md) |
+| [`submission/fraud_detection_report.pdf`](submission/fraud_detection_report.pdf) | Final written report |
+| [`ppt/Fraud_Detection_Case_Study_Latest.pptx`](ppt/Fraud_Detection_Case_Study_Latest.pptx) | Editable presentation; its SVG source and notes are in [`ppt/fraud_detection_20261023/`](ppt/fraud_detection_20261023/) |
+| [`image/`](image/) | 25 EDA and graph-analysis PDF figures |
+| [`coaching_state.md`](coaching_state.md) | 30 project-specific interview questions with evidence-based short answers |
+| [`code/`](code/) | Development EDA and graph-feature scripts |
+| [`columns.txt`](columns.txt) | Supplied field descriptions |
 
-## Run
+## Reproduce
 
-Use Python 3.12 and the dependencies in `submission/code/requirements.txt`.
-Place the original `train_fraud.parquet` and `test_fraud_external.parquet` files
-in the repository root, and read `columns.txt` before working with the data.
+Use the existing `nasdaq` Conda environment (Python 3.12.15). On this Windows
+machine its interpreter is `D:\miniconda3\envs\nasdaq\python.exe`; install the
+pinned packages in [`submission/code/requirements.txt`](submission/code/requirements.txt).
+The reported experiments were originally run with Python 3.9.25 and have **not**
+been rerun after the environment migration.
 
-Activate your Python 3.12 environment (`conda activate nasdaq`), then run these
-commands from the repository root. Here, `python` refers to the interpreter in your active environment; use
-`python3` instead if that is the command on your system.
+Place the unmodified `train_fraud.parquet` and `test_fraud_external.parquet` in
+the repository root, and consult `columns.txt` before interpreting fields. From
+the repository root, run:
 
-```bash
-python -m pip install -r submission/code/requirements.txt
-python submission/code/experiments/eda_summary.py --train train_fraud.parquet --output output
-python submission/code/experiments/train_ablation.py --train train_fraud.parquet --test test_fraud_external.parquet --output output --submission-path submission/test_fraud_external.parquet
+```powershell
+& "D:\miniconda3\envs\nasdaq\python.exe" -m pip install -r submission/code/requirements.txt
+& "D:\miniconda3\envs\nasdaq\python.exe" submission/code/experiments/eda_summary.py --train train_fraud.parquet --output output
+& "D:\miniconda3\envs\nasdaq\python.exe" submission/code/experiments/train_ablation.py --train train_fraud.parquet --test test_fraud_external.parquet --output output --submission-path submission/test_fraud_external.parquet
 ```
 
-See [the reproduction guide](submission/code/README.md) for the remaining
-validation and reporting commands.
+The [reproduction guide](submission/code/README.md) lists the cross-validation,
+chronological check, reference-rule, and report-figure commands. Preprocessing
+is fit only on training partitions. The model excludes post-transaction balances
+for its pre-approval prediction setting. Graph features use strictly earlier
+elapsed hours; same-hour transaction order is unknown.
 
-The prediction deliverable preserves the original external test rows and columns
-and appends the binary `is_fraud_predicted` column. Datasets, model binaries,
-generated output directories, and submission archives are excluded from Git.
+The prediction deliverable appends binary `is_fraud_predicted` to every original
+external row while preserving its order and columns. The source external file
+is not overwritten. Local Parquet inputs and outputs, model binaries, generated
+metrics, and submission archives are excluded from Git.
